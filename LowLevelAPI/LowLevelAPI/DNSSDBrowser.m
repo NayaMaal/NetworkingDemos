@@ -125,7 +125,7 @@ static void BrowseReplyCallback(
             domain = @"";
         }
         
-        errorCode = DNSServiceBrowse(&self->sdRef_, 0, kDNSServiceInterfaceIndexAny, [self.type UTF8String], [domain UTF8String], BrowseReplyCallback, (__bridge void *)(self));
+        errorCode = DNSServiceBrowse(&self->sdRef_, 0, kDNSServiceInterfaceIndexP2P, [self.type UTF8String], [domain UTF8String], BrowseReplyCallback, (__bridge void *)(self));
         if (errorCode == kDNSServiceErr_NoError) {
             errorCode = DNSServiceSetDispatchQueue(self.sdRef, dispatch_get_main_queue());
         }
